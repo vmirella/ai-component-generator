@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+echo "Running format..."
+npm run format
+
+echo "Running ESLint..."
+npm run eslint:fix
+
+echo "Running lint-staged..."
+npx lint-staged
+
+echo "Running tests..."
+npm test

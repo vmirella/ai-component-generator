@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+if [ -z "$HUSKY_GIT_PARAMS" ]; then
+  exec < /dev/tty
+fi
+
+# Evita loop infinito cuando el commit ya viene desde cz
+if [[ "$2" != "message" ]]; then
+  npx cz --hook
+fi
